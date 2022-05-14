@@ -33,7 +33,7 @@ const addString = (inputString) => {
         negativeNumbers.push(num);
         continue;
       }
-      sum += Number(value);
+      sum += num > 1000 ? 0 : num;
     }
   }
   if (negativeNumbers.length > 0) {

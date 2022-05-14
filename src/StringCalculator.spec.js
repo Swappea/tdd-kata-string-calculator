@@ -45,4 +45,8 @@ describe('String Calculator', () => {
   it('will throw a message for negative numbers not allowed with the negative numbers - 2', () => {
     assert.strictEqual(addString('2,-4,-9'), 'negatives not allowed : -4,-9');
   });
+
+  it('will ignore number more than 1000', () => {
+    assert.strictEqual(addString('2,1002,5'), 7);
+  });
 });
