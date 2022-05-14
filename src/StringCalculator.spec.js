@@ -1,5 +1,5 @@
-const assert = require('assert')
-const { addString } = require('./StringCalculator')
+const assert = require('assert');
+const { addString } = require('./StringCalculator');
 
 describe('String Calculator', () => {
   it('will add and return 0 for empty string', () => {
@@ -8,5 +8,9 @@ describe('String Calculator', () => {
 
   it('will add and return value for 1 element in string', () => {
     assert.strictEqual(addString('1'), 1);
+  });
+
+  it('will add and return value for 2 elements in string', () => {
+    assert.strictEqual(addString('1,2'), 3);
   });
 });
