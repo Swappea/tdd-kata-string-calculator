@@ -9,12 +9,14 @@ const addString = (inputString) => {
 
   let defaultDelimiter = ',';
   const newLineDelimter = '\n';
+  
+  const newDelimitterPattern = '//';
 
   const delimitedArray = inputString.split(newLineDelimter);
   let sum = 0;
   for (const line of delimitedArray) {
-    if (line.startsWith('//')) {
-      defaultDelimiter = line.substring(2);
+    if (line.startsWith(newDelimitterPattern)) {
+      defaultDelimiter = line.substring(newDelimitterPattern.length);
       continue;
     }
 
