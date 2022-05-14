@@ -9,8 +9,9 @@ const addString = (inputString) => {
 
   let defaultDelimiter = ',';
   const newLineDelimter = '\n';
-  
   const newDelimitterPattern = '//';
+
+  const negativeNumbers = [];
 
   const delimitedArray = inputString.split(newLineDelimter);
   let sum = 0;
@@ -27,8 +28,16 @@ const addString = (inputString) => {
     const delimitedValues = line.split(defaultDelimiter);
 
     for (const value of delimitedValues) {
+      const num = Number(value);
+      if (num < 0) {
+        negativeNumbers.push(num);
+        continue;
+      }
       sum += Number(value);
     }
+  }
+  if (negativeNumbers.length > 0) {
+    return `negatives not allowed : ${negativeNumbers.join(',')}`;
   }
 
   return sum;

@@ -37,4 +37,12 @@ describe('String Calculator', () => {
   it('will accept a default delimiter passed in input string and support existing scenarios', () => {
     assert.strictEqual(addString('//;\n1;2\n3'), 6);
   });
+
+  it('will throw a message for negative numbers not allowed with the negative numbers', () => {
+    assert.strictEqual(addString('1,-2'), 'negatives not allowed : -2');
+  });
+
+  it('will throw a message for negative numbers not allowed with the negative numbers - 2', () => {
+    assert.strictEqual(addString('2,-4,-9'), 'negatives not allowed : -4,-9');
+  });
 });
