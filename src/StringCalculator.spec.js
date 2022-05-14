@@ -25,4 +25,8 @@ describe('String Calculator', () => {
   it('will add and return value for numbers with new line delimiter', () => {
     assert.strictEqual(addString('1,2\n3'), 6);
   });
+
+  it('will throw an error when input syntax is wrong', () => {
+    assert.throws(() => addString('1,2,\n3'));
+  });
 });

@@ -10,6 +10,10 @@ const addString = (inputString) => {
   const delimitedArray = inputString.split('\n');
   let sum = 0;
   for (const line of delimitedArray) {
+    if (line.endsWith(',')) {
+      throw new Error('SyntaxError');
+    }
+
     const delimitedValues = line.split(',');
 
     for (const value of delimitedValues) {
