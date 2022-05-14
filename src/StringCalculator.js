@@ -7,17 +7,22 @@ const addString = (inputString) => {
     return +inputString;
   }
 
-  const delimiter = ',';
+  let defaultDelimiter = ',';
   const newLineDelimter = '\n';
 
   const delimitedArray = inputString.split(newLineDelimter);
   let sum = 0;
   for (const line of delimitedArray) {
-    if (line.endsWith(delimiter)) {
+    if (line.startsWith('//')) {
+      defaultDelimiter = line.substring(2);
+      continue;
+    }
+
+    if (line.endsWith(defaultDelimiter)) {
       throw new Error('SyntaxError');
     }
 
-    const delimitedValues = line.split(delimiter);
+    const delimitedValues = line.split(defaultDelimiter);
 
     for (const value of delimitedValues) {
       sum += Number(value);

@@ -29,4 +29,12 @@ describe('String Calculator', () => {
   it('will throw an error when input syntax is wrong', () => {
     assert.throws(() => addString('1,2,\n3'));
   });
+
+  it('will accept a default delimiter passed in input string', () => {
+    assert.strictEqual(addString('//;\n1;2'), 3);
+  });
+
+  it('will accept a default delimiter passed in input string and support existing scenarios', () => {
+    assert.strictEqual(addString('//;\n1;2\n3'), 6);
+  });
 });
