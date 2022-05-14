@@ -7,10 +7,14 @@ const addString = (inputString) => {
     return +inputString;
   }
 
-  const inputArr = inputString.split(',');
+  const delimitedArray = inputString.split('\n');
   let sum = 0;
-  for (let i = 0; i < inputArr.length; i++) {
-      sum += Number(inputArr[i]);
+  for (const line of delimitedArray) {
+    const delimitedValues = line.split(',');
+
+    for (const value of delimitedValues) {
+      sum += Number(value);
+    }
   }
 
   return sum;

@@ -21,4 +21,8 @@ describe('String Calculator', () => {
     const sum = randomInput.reduce((accu, val) => accu + val, 0);
     assert.strictEqual(addString(randomInput.join(',')), sum);
   });
+
+  it('will add and return value for numbers with new line delimiter', () => {
+    assert.strictEqual(addString('1,2\n3'), 6);
+  });
 });
